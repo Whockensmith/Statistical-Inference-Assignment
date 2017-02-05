@@ -4,7 +4,7 @@ author: "Wayne Hockensmith"
 date: "January 31, 2017"
 output: pdf_document
 ---
-# In this project we will analyze the ToothGrowth data in the R datasets package.  The data was collected while giving guinea pigs vitamin-c from orange juice and ascorbic acid.  Both were given dosages of .5, 1.0, and 2.0 millgrams per day.
+# In this project we will analyze the ToothGrowth data in the R datasets package.  The data was collected while giving guinea pigs vitamin-c from orange juice and ascorbic acid.  Doses were given in the amounts of .5, 1.0, and 2.0 millgrams per day.
 
 ## Four things we were ask to do:  
  1. Load the ToothGrowth data and perform some basic exploratory data analyses.  
@@ -38,7 +38,7 @@ ggplot(data=ToothGrowth, aes(x=as.factor(dose), y=len, fill=supp)) +
     geom_bar(stat="identity",) +
     facet_grid(. ~ supp) +
     xlab("Dosage") +
-    ylab("Tooth length") +
+    ylab("Total Odontoblast Length") +
     guides(fill=guide_legend(title="Supplement"))
 ```
 At first glance it would appear that orange juice has more of an effect then asorbic acid dose for 0.5 and 1 milligrams.  However at 2 milligrams there is no ifference. Column and bar charts don't always tell the whole story or a true story.  So we will move onto some hypothesis testing to determine if the column chart is correct.
@@ -84,7 +84,7 @@ p1 <- ggplot(ToothGrowth, aes(x = factor(dose), y = len, fill = factor(dose))) +
 p1 + geom_boxplot() + guides(fill=FALSE) + facet_grid(. ~ supp)
 
 ```
-The box plot shows that orange juice still promotes more tooth growth with dosages of 0.5 and 1 millingrams.  However with a dosage of 2 milligrams the mean tooth growth is the same but ascorbic acid has a wider range of results.
+The box plot shows that orange juice still promotes more tooth growth with dosages of 0.5 and 1 millingrams.  However with a dosage of 2 milligrams the mean tooth growth is the same (25.95) but ascorbic acid has a wider range of results. Ascorbic acid at the dose of 2 milligrams had a range from 18.5 to 33.9 where as orange juice had a range only of 22.4 to 30.9. ascorbic acid does have two observations over orange juice but the not enough to offset the fact toat fifty percent of the ascorbic acid lies less then the meadian growth of those treated with orange juice. 
 
 ## 4. conclusions and the assumptions  
 My conclusion for this project is orange juice is a better supplement to promote tooth growth, atleast with Guinea Pigs.  At lower dosages orange juice significantly out performed ascorbic aacid and at the higher dosage the orange juice was more consistant.  
